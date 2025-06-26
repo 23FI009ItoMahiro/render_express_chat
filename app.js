@@ -16,14 +16,14 @@ app.ws('/ws', (ws, req) => {
   ws.on('message', (message) => {
     console.log('Received:', message)
     if(message == 'sum'){
-      message = 'sum = ';
+      message = 'sum: ';
       let sum = 0
       for (let index = 0; index < numbers.length; index++) {
         sum += numbers[index]
       }
       message += sum
     }else if(message == 'ave'){
-      message = 'sum = ';
+      message = 'ave: ';
       let sum = 0
       for (let index = 0; index < numbers.length; index++) {
         sum += numbers[index]
@@ -36,10 +36,10 @@ app.ws('/ws', (ws, req) => {
       }
     }else if(message == 'clear'){
       numbers = []
-      message += sum / numbers.length
+      message += 'clear numbers'
     } else{
       numbers.push(Number(message))
-      message = 'push' + message
+      message = 'push: ' + message
     }
 
     connects.forEach((socket) => {
