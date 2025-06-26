@@ -29,7 +29,15 @@ app.ws('/ws', (ws, req) => {
         sum += numbers[index]
       }
       message += sum / numbers.length
-    }else{
+    }else if(message == 'show'){
+      message = 'show numbers:';
+      for (let index = 0; index < numbers.length; index++) {
+        message += numbers.index + ' '
+      }
+    }else if(message == 'clear'){
+      numbers = []
+      message += sum / numbers.length
+    } else{
       numbers.push(Number(message))
       message = 'push' + message
     }
