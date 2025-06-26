@@ -8,7 +8,7 @@
       .chat {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        height: 90vh;
       }
       .messages {
         flex: 1;
@@ -62,7 +62,8 @@
           const response = msg.data
           const messageList = document.querySelector('.messages')
           const li = document.createElement('li')
-          li.textContent = response
+          // li.textContent = response
+          li.textContent = "test"
           messageList.appendChild(li)
         }
 
