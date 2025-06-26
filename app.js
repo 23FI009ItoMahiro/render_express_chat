@@ -22,8 +22,16 @@ app.ws('/ws', (ws, req) => {
         sum += numbers[index]
       }
       message += sum
+    }else if(message == 'ave'){
+      message = 'sum = ';
+      let sum = 0
+      for (let index = 0; index < numbers.length; index++) {
+        sum += numbers[index]
+      }
+      message += sum / numbers.length
     }else{
       numbers.push(Number(message))
+      message = 'push' += message
     }
 
     connects.forEach((socket) => {
