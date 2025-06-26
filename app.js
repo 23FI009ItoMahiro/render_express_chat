@@ -31,7 +31,7 @@ app.ws('/ws', (ws, req) => {
       message += sum / numbers.length
     }else{
       numbers.push(Number(message))
-      message = 'push' += message
+      message = 'push' + message
     }
 
     connects.forEach((socket) => {
