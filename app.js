@@ -6,6 +6,7 @@ expressWs(app)
 
 const port = process.env.PORT || 3001
 let connects = []
+let numbers = []
 
 app.use(express.static('public'))
 
@@ -14,6 +15,16 @@ app.ws('/ws', (ws, req) => {
 
   ws.on('message', (message) => {
     console.log('Received:', message)
+    if(message == 'sum'){
+      message = 'sum = ';
+      let sum = 0
+      for (let index = 0; index < numbers.length; index++) {
+        sum += numbers[index]
+      }
+      message += sum
+    }else{
+      numbers.push(Number(message))
+    }
 
     connects.forEach((socket) => {
       if (socket.readyState === 1) {
