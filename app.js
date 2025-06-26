@@ -32,11 +32,11 @@ app.ws('/ws', (ws, req) => {
     }else if(message == 'show'){
       message = 'show numbers:';
       for (let index = 0; index < numbers.length; index++) {
-        message += numbers.index + ' '
+        message += numbers[index] + ' '
       }
     }else if(message == 'clear'){
       numbers = []
-      message += 'clear numbers'
+      message = 'clear numbers'
     } else{
       numbers.push(Number(message))
       message = 'push: ' + message
